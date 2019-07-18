@@ -21,64 +21,27 @@ function setup(){
     fill(255,0,0);
 }
 let board = [
+["0", "s", "0", "0", "0", "0", "s", "s", "s", "0", ],
+["0", "s", "0", "0", "0", "0", "0", "0", "0", "0", ],
+["0", "s", "0", "0", "0", "0", "0", "0", "0", "0", ],
+["0", "0", "0", "s", "s", "0", "0", "0", "0", "0", ],
 ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
 ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
 ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
-["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ],
+["0", "0", "0", "0", "s", "s", "s", "s", "s", "0", ],
+["s", "s", "s", "s", "0", "0", "0", "0", "0", "0", ],
 ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0", ]
 ];
 function mouseClicked(){
-positionX = mouseX / 60;
-positionY = mouseY / 60;
+positionX = Math.floor(mouseX / (width / box_row));
+positionY = Math.floor(mouseY / (height / box_col));
 console.log(positionX, " ", positionY);
-/*    if(mouseY < 60){
-        if(mouseX < 60){
-        rect(0,0,60,60);}
-        if(mouseX > 60 && mouseX < 120){
-        rect(60,0,60,60);}
-        if(mouseX > 120 && mouseX < 180){
-        rect(120,0,60,60);}
-        if(mouseX > 180 && mouseX < 240){
-        rect(180,0,60,60);}
-        if(mouseX > 240 && mouseX < 300){
-        rect(240,0,60,60);}
-        if(mouseX > 300 && mouseX < 360){
-        rect(300,0,60,60);}
-        if(mouseX > 360 && mouseX < 420){
-        rect(360,0,60,60);}
-        if(mouseX > 420 && mouseX < 480){
-        rect(420,0,60,60);}
-        if(mouseX > 480 && mouseX < 540){
-        rect(480,0,60,60);}
-        if(mouseX > 540 && mouseX < 600){
-        rect(540,0,60,60);}
-    }
-    if(mouseY > 60 && mouseY < 120){
-        if(mouseX < 60){
-        rect(0,0,60,60);}
-        if(mouseX > 60 && mouseX < 120){
-        rect(60,0,60,60);}
-        if(mouseX > 120 && mouseX < 180){
-        rect(120,0,60,60);}
-        if(mouseX > 180 && mouseX < 240){
-        rect(180,0,60,60);}
-        if(mouseX > 240 && mouseX < 300){
-        rect(240,0,60,60);}
-        if(mouseX > 300 && mouseX < 360){
-        rect(300,0,60,60);}
-        if(mouseX > 360 && mouseX < 420){
-        rect(360,0,60,60);}
-        if(mouseX > 420 && mouseX < 480){
-        rect(420,0,60,60);}
-        if(mouseX > 480 && mouseX < 540){
-        rect(480,0,60,60);}
-        if(mouseX > 540 && mouseX < 600){
-        rect(540,0,60,60);}
-    }
-     */
+if(board[positionY][positionX] == "s"){
+fill(0,255,0);
+rect(positionX * 60,positionY * 60, box_width, box_height);
+fill(255,0,0);
+}
+else{
+    rect(positionX * 60,positionY * 60, box_width, box_height);
+}
 }
